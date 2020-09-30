@@ -13,7 +13,7 @@ class Attribute {
     public function __construct($id, $title, array $labels) {
         $this->id = $id;
         $this->title = $title;
-        $this->labels = $labels;
+        $this->setLabels($labels);
     }
 
     /**
@@ -55,8 +55,16 @@ class Attribute {
      * @param array $labels
      */
     public function setLabels($labels) {
-        $this->labels = $labels;
+        foreach ($labels as $label) {
+            $this->labels[] = new Label($label["id"], $label["title"]);
+        }
     }
 
+    public function checkIfLabelRelated($label) {
+        return array_search($label, $this->labels);
+    }
 
+    public function checkIfLabelRelatedByLabelId($label_id) {
+        return array_search($label, $this->labels);
+    }
 }

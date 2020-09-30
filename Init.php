@@ -38,8 +38,17 @@ class Init {
         $this->all_products = $all_products;
     }
 
+    public function getAttributesByRelatedLabelsIds($labels_ids){
+        foreach ($this->all_attributes as $attribute) {
+            // TODO: I stopped here
+            $key = $attribute->checkIfLabelRelatedByLabelId();
+
+        }
+    }
+
     public function createProducts() {
         foreach ($this->json_decoded["products"] as $val) {
+            $this->getAttributesByRelatedLabelsIds($val["labels"]);
             $this->createCategories($val["categories"]);
             $this->all_products[] = new Product($val["id"], $val["title"], $val["price"], $val["categories"], $val["labels"]);
         }
@@ -70,6 +79,15 @@ class Init {
         return -1;
     }
 
+    public function checkIfAttributeExistsInCategory($attribute_to_check) {
+        foreach ($this->all_attributes as $attribute) {
+            if ($attribute_to_check["id"] == $attribute->getId() && $attribute_to_check["title"] == $attribute->getTitle()) {
+                return array_search($attribute, $this->all_attributes);
+            }
+        }
+        return -1;
+    }
+
     /**
      * @return array
      */
@@ -81,9 +99,8 @@ class Init {
     }
 
     public function createAttributes() {
-        foreach ($this->json_decoded["products"] as $val) {
-            $this->createCategories($val["categories"]);
-            $this->all_products[] = new Product($val["id"], $val["title"], $val["price"], $val["categories"], $val["labels"]);
+        foreach ($this->json_decoded["attributes"] as $val) {
+            $this->all_attributes[] = new Attribute($val["id"], $val["title"], $val["labels"]);
         }
     }
 

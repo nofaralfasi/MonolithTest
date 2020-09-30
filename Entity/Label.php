@@ -10,7 +10,7 @@ class Label {
      * @param $title
      * @param $related_products_counter
      */
-    public function __construct($id, $title, $related_products_counter) {
+    public function __construct($id, $title, $related_products_counter = 0) {
         $this->id = $id;
         $this->title = $title;
         $this->related_products_counter = $related_products_counter;
@@ -57,6 +57,4 @@ class Label {
     public function setRelatedProductsCounter($related_products_counter) {
         $this->related_products_counter = $related_products_counter;
     }
-
-
 }
