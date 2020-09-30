@@ -2,7 +2,6 @@
 include 'Init.php';
 include 'Product.php';
 //$init = new Init();
-//$init->initCatalogFromJsonFile3();
 //$init->initCatalogFromJsonFile2();
 //$init->initCatalogFromJsonFile();
 //$init->sendProducts();
