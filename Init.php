@@ -1,18 +1,16 @@
 <?php
-//include 'Product.php';
 class Init {
-    const JSON_FILE_NAME2 = "catalog.json";
+    const JSON_FILE_NAME = "catalog.json";
     private $file_content;
     private $json_decoded;
     private $all_products = array();
     private $all_categories = array();
-    private $all_categories_json = array();
 
     /**
      * Init constructor.
      */
     public function __construct() {
-        $this->file_content = file_get_contents(self::JSON_FILE_NAME2);
+        $this->file_content = file_get_contents(self::JSON_FILE_NAME);
         if ($this->file_content === false) {
             // deal with error...
         }

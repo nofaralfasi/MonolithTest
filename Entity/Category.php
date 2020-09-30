@@ -1,16 +1,17 @@
 <?php
-class Label {
+class Category {
     private $id;
     private $title;
     private $related_products_counter;
+    private $attributes = array();
 
     /**
-     * Label constructor.
+     * Category constructor.
      * @param $id
      * @param $title
      * @param $related_products_counter
      */
-    public function __construct($id, $title, $related_products_counter) {
+    public function __construct($id, $title, $related_products_counter = 0) {
         $this->id = $id;
         $this->title = $title;
         $this->related_products_counter = $related_products_counter;
@@ -45,18 +46,39 @@ class Label {
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getRelatedProductsCounter() {
         return $this->related_products_counter;
     }
 
     /**
-     * @param mixed $related_products_counter
+     * @param int $related_products_counter
      */
     public function setRelatedProductsCounter($related_products_counter) {
         $this->related_products_counter = $related_products_counter;
     }
 
+    /**
+     * @return array
+     */
+    public function getAttributes() {
+        return $this->attributes;
+    }
 
+    /**
+     * @param array $attributes
+     */
+    public function setAttributes($attributes) {
+        $this->attributes = $attributes;
+    }
+
+    public function increaseRelatedProductsCounter() {
+        $this->related_products_counter += 1;
+    }
+
+    public function printProduct() {
+        echo "\nProduct #" . $this->id . ":\nTitle: " . $this->title . "\nRelated Products Counter: " . $this->related_products_counter . "\nRelated Attributes: ";
+        print_r($this->attributes);
+    }
 }

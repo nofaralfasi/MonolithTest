@@ -1,7 +1,7 @@
 <?php
 include 'Init.php';
-include 'Product.php';
-include 'Category.php';
+include 'Entity/Product.php';
+include 'Entity/Category.php';
 
 $init = new Init();
 $all_products = $init->getAllProducts();
