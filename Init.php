@@ -25,6 +25,9 @@ class Init {
      * @return array
      */
     public function getAllProducts() {
+        if(empty($this->all_products)){
+            $this->createProducts();
+        }
         return $this->all_products;
     }
 
