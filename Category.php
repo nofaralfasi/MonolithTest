@@ -11,10 +11,10 @@ class Category {
      * @param $title
      * @param $related_products_counter
      */
-    public function __construct($id, $title) {
+    public function __construct($id, $title, $related_products_counter = 0) {
         $this->id = $id;
         $this->title = $title;
-        $this->related_products_counter = 0;
+        $this->related_products_counter = $related_products_counter;
     }
 
     /**
@@ -73,11 +73,12 @@ class Category {
         $this->related_attributes = $related_attributes;
     }
 
-
+    public function increaseRelatedProductsCounter() {
+        $this->related_products_counter += 1;
+    }
 
     public function printProduct() {
         echo "\nProduct #" . $this->id . ":\nTitle: " . $this->title . "\nRelated Products Counter: " . $this->related_products_counter . "\nRelated Attributes: ";
         print_r($this->related_attributes);
     }
-
 }

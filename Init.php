@@ -46,40 +46,33 @@ class Init {
         }
     }
 
-    public function checkIfCategoryExists($category_to_check){
-        foreach ($this->all_categories as $category) {
-            if($category_to_check["title"]==$category->getTitle()){
-                return true;
-            }
-        }
-        return false;
-    }
-
     public function createCategory($categories) {
         if (empty($this->all_categories)) {
             foreach ($categories as $category) {
-                $this->all_categories[] = new Category($category["id"], $category["title"]);
+                $this->all_categories[] = new Category($category["id"], $category["title"], 1);
             }
         } elseif (!empty($categories)) {
             foreach ($categories as $category1) {
-//                foreach ($this->all_categories as $category2) {
-                    if($this->checkIfCategoryExists($category1)){
-                        echo "\nWorks!\n";
-                        // TODO: increase something!
-                    }
-                    else {
-                        $this->all_categories[] = new Category($category1["id"], $category1["title"]);
-                    }
-//                    if ($category1["title"] == $category2->getTitle()) {
-//                        echo "\nWorks!\n";
-//                        // TODO: increase something!
-//                    }
-//                }
-//                var_dump($category);
-//                if(in_array($category, $this->all_categories_json)){ //if(in_array($category, array_values($this->all_categories_json)))
-//                }
+                $key = $this->checkIfCategoryExists($category1);
+                if ($key != -1) {
+                    echo "\n";
+                    ($this->all_categories[$key])->increaseRelatedProductsCounter();
+                    print (($this->all_categories[$key])->getTitle());
+                    print (($this->all_categories[$key])->getRelatedProductsCounter());
+                } else {
+                    $this->all_categories[] = new Category($category1["id"], $category1["title"], 1);
+                }
             }
         }
+    }
+
+    public function checkIfCategoryExists($category_to_check) {
+        foreach ($this->all_categories as $category) {
+            if ($category_to_check["title"] == $category->getTitle()) {
+                return array_search($category, $this->all_categories);
+            }
+        }
+        return -1;
     }
 
     /**
