@@ -5,6 +5,7 @@ class Init {
     private $json_decoded;
     private $all_products = array();
     private $all_categories = array();
+    private $all_attributes = array();
 
     /**
      * Init constructor.
@@ -39,26 +40,22 @@ class Init {
 
     public function createProducts() {
         foreach ($this->json_decoded["products"] as $val) {
-            $this->createCategory($val["categories"]);
+            $this->createCategories($val["categories"]);
             $this->all_products[] = new Product($val["id"], $val["title"], $val["price"], $val["categories"], $val["labels"]);
         }
     }
 
-    public function createCategory($categories) {
-        if (empty($this->all_categories)) {
+    public function createCategories($categories) {
+        if (!empty($categories)) {
             foreach ($categories as $category) {
-                $this->all_categories[] = new Category($category["id"], $category["title"], 1);
-            }
-        } elseif (!empty($categories)) {
-            foreach ($categories as $category1) {
-                $key = $this->checkIfCategoryExists($category1);
+                $key = $this->checkIfCategoryExists($category);
                 if ($key != -1) {
-                    echo "\n";
                     ($this->all_categories[$key])->increaseRelatedProductsCounter();
+                    echo "\n";
                     print (($this->all_categories[$key])->getTitle());
                     print (($this->all_categories[$key])->getRelatedProductsCounter());
                 } else {
-                    $this->all_categories[] = new Category($category1["id"], $category1["title"], 1);
+                    $this->all_categories[] = new Category($category["id"], $category["title"], 1);
                 }
             }
         }
@@ -71,6 +68,23 @@ class Init {
             }
         }
         return -1;
+    }
+
+    /**
+     * @return array
+     */
+    public function getAllAttributes() {
+        if (empty($this->all_attributes)) {
+            $this->createAttributes();
+        }
+        return $this->all_attributes;
+    }
+
+    public function createAttributes() {
+        foreach ($this->json_decoded["products"] as $val) {
+            $this->createCategories($val["categories"]);
+            $this->all_products[] = new Product($val["id"], $val["title"], $val["price"], $val["categories"], $val["labels"]);
+        }
     }
 
     /**
@@ -108,15 +122,10 @@ class Init {
     }
 
     public function sendProducts() {
-//        print_r($this->json_decoded["products"]);
-//        var_dump($this->json_decoded["products"]);
         foreach ($this->json_decoded["products"] as $val) {
             if (is_array($val)) {
                 print_r($val);
             }
-//            else {
-//                print($val);
-//            }
         }
     }
 }

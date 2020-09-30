@@ -5,6 +5,7 @@ class Product {
     private $price;
     private $categories = array();
     private $labels = array();
+//    private $attributes = array(); ?????
 
     /**
      * Product constructor.
@@ -20,7 +21,6 @@ class Product {
         $this->price = $price;
         $this->categories = $categories;
         $this->labels = $labels;
-//        echo "\nNew Product Was Created!";
     }
 
     /**

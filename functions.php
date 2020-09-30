@@ -2,17 +2,20 @@
 include 'Init.php';
 include 'Entity/Product.php';
 include 'Entity/Category.php';
+include 'Entity/Attribute.php';
+include 'Entity/Label.php';
 
 $init = new Init();
-$all_products = $init->getAllProducts();
+$attributes = $init->getAllAttributes();
+$products = $init->getAllProducts();
 
-//foreach ($all_products as $p) {
+//foreach ($products as $p) {
 //    $p->printProduct();
 //}
 
 /*
-$all_categories = $init->getAllCategories();
-foreach ($all_categories as $c) {
+$categories = $init->getAllCategories();
+foreach ($categories as $c) {
     $c->printCategory();
 }
 
