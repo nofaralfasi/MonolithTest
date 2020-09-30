@@ -6,6 +6,7 @@ class Init {
     private $json_decoded;
     private $all_products = array();
     private $all_categories = array();
+    private $all_categories_json = array();
 
     /**
      * Init constructor.
@@ -25,7 +26,7 @@ class Init {
      * @return array
      */
     public function getAllProducts() {
-        if(empty($this->all_products)){
+        if (empty($this->all_products)) {
             $this->createProducts();
         }
         return $this->all_products;
@@ -36,6 +37,49 @@ class Init {
      */
     public function setAllProducts($all_products) {
         $this->all_products = $all_products;
+    }
+
+    public function createProducts() {
+        foreach ($this->json_decoded["products"] as $val) {
+            $this->createCategory($val["categories"]);
+            $this->all_products[] = new Product($val["id"], $val["title"], $val["price"], $val["categories"], $val["labels"]);
+        }
+    }
+
+    public function checkIfCategoryExists($category_to_check){
+        foreach ($this->all_categories as $category) {
+            if($category_to_check["title"]==$category->getTitle()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function createCategory($categories) {
+        if (empty($this->all_categories)) {
+            foreach ($categories as $category) {
+                $this->all_categories[] = new Category($category["id"], $category["title"]);
+            }
+        } elseif (!empty($categories)) {
+            foreach ($categories as $category1) {
+//                foreach ($this->all_categories as $category2) {
+                    if($this->checkIfCategoryExists($category1)){
+                        echo "\nWorks!\n";
+                        // TODO: increase something!
+                    }
+                    else {
+                        $this->all_categories[] = new Category($category1["id"], $category1["title"]);
+                    }
+//                    if ($category1["title"] == $category2->getTitle()) {
+//                        echo "\nWorks!\n";
+//                        // TODO: increase something!
+//                    }
+//                }
+//                var_dump($category);
+//                if(in_array($category, $this->all_categories_json)){ //if(in_array($category, array_values($this->all_categories_json)))
+//                }
+            }
+        }
     }
 
     /**
@@ -83,21 +127,5 @@ class Init {
 //                print($val);
 //            }
         }
-    }
-
-    public function createProducts() {
-        foreach ($this->json_decoded["products"] as $val) {
-            $this->createCategory($val["categories"]);
-            $this->all_products[] = new Product($val["id"], $val["title"], $val["price"], $val["categories"], $val["labels"]);
-        }
-    }
-
-    public function createCategory($categories) {
-        if (!empty($categories)) {
-            foreach ($categories as $category) {
-
-            }
-        }
-//            in_array(search, array, type)
     }
 }
