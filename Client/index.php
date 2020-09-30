@@ -1,10 +1,15 @@
 <?php
 session_start();
-//include("functions/functions.php");
+include("functions/functions.php");
 $page = "home";
 $title = "Homepage";
 $metaD = "Stickers Center Homepage";
 include("header.php");
+include "../Init.php";
+$init = new Init();
+$attributes = $init->getAllAttributes();
+$products = $init->getAllProducts();
+$categories = $init->getAllCategories();
 ?>
 
     <section id="slider">
@@ -85,9 +90,8 @@ include("header.php");
                         <h2 class="title text-center">Features Items</h2>
                         <div class="col-sm-4">
                             <div id="products_box">
-                                <?php getPro(); ?>
-                                <?php getCatPro(); ?>
-                                <?php getBrandPro(); ?>
+                                <?php getProductsList($products); ?>
+                                <?php getCategoriesList($categories); ?>
                             </div>
                         </div>
                     </div>

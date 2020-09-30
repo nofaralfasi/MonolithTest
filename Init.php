@@ -42,7 +42,6 @@ class Init {
         foreach ($this->all_attributes as $attribute) {
             // TODO: I stopped here
             $key = $attribute->checkIfLabelRelatedByLabelId();
-
         }
     }
 
