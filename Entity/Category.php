@@ -19,12 +19,6 @@ class Category {
         $this->related_products_counter = $related_products_counter;
     }
 
-//    public function __construct($id, $title, $related_products_counter = 0) {
-//        $this->id = $id;
-//        $this->title = $title;
-//        $this->related_products_counter = $related_products_counter;
-//    }
-
     /**
      * @return mixed
      */
@@ -86,14 +80,26 @@ class Category {
     }
 
     public function addAttributes($attributes) {
-        foreach ($attributes as $attribute){
-//            $attribute->
-//            $labels = $attribute->getLabels();
-//            foreach ($labels as $label){
-//                $label->
-//            }
-            $this->attributes[]=$attribute;
+        $array_attrs = array();
+        foreach ($attributes as $new_attribute) {
+            foreach ($this->attributes as $attribute) {
+                if ($new_attribute->getId() == $attribute->getId()) {
+                    $attribute->addLabels($new_attribute->getLabels());
+                } else {
+                    $array_attrs[] = $new_attribute;
+                }
+            }
         }
+        array_merge($this->attributes, $array_attrs);
+    }
+
+    public function checkIfHasAttribute($attribute) {
+        foreach ($this->attributes as $attr) {
+            if ($attribute->getId() == $attr->getId()) {
+                return $attr;
+            }
+        }
+        return NULL;
     }
 
     public function printProduct() {

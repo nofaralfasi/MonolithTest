@@ -22,6 +22,7 @@ $init = new Init();
 //$attributes = $init->getAllAttributes();
 $products = $init->getAllProducts();
 $categories = $init->getAllCategories();
+
 include("header.php");
 include("slider.php");
 ?>

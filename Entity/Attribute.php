@@ -71,16 +71,39 @@ class Attribute {
         return $this->last_label_id;
     }
 
-        public function checkIfLabelRelated($label) {
+    public function addLabels($labels) {
+        $flag = 0;
+        foreach ($labels as $new_label) {
+            foreach ($this->labels as $label) {
+                if ($label->getId() == $new_label->getId()) {
+                    $flag = 1;
+                    $label->setRelatedProductsCounter($label->getRelatedProductsCounter() + $new_label->getRelatedProductsCounter());
+                }
+            }
+            if ($flag == 0) {
+                $this->labels[] = $new_label;
+            }
+            $flag = 0;
+        }
+    }
+
+    public function getLabelTitleByLabelId($label_id) {
+        foreach ($this->labels as $label) {
+            if ($label->getId() == $label_id) {
+                return $label->getTitle();
+            }
+        }
+        return "";
+    }
+
+    public function checkIfLabelRelated($label) {
         return array_search($label, $this->labels);
     }
 
     public function checkIfLabelRelatedByLabelId($label_id) {
-        if($label_id >= $this->first_label_id && $label_id <= $this->last_label_id){
+        if ($label_id >= $this->first_label_id && $label_id <= $this->last_label_id) {
             return TRUE;
         }
         return FALSE;
     }
-
-
 }

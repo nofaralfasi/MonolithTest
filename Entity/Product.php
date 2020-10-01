@@ -4,8 +4,7 @@ class Product {
     private $title;
     private $price;
     private $categories = array();
-    private $labels = array();
-//    private $attributes = array(); ?????
+    private $attributes = array();
 
     /**
      * Product constructor.
@@ -13,14 +12,14 @@ class Product {
      * @param $title
      * @param $price
      * @param array $categories
-     * @param array $labels
+     * @param array $attributes
      */
-    public function __construct($id, $title, $price, array $categories, array $labels) {
+    public function __construct($id, $title, $price, array $categories, array $attributes) {
         $this->id = $id;
         $this->title = $title;
         $this->price = $price;
         $this->categories = $categories;
-        $this->labels = $labels;
+        $this->attributes = $attributes;
     }
 
     /**
@@ -82,21 +81,14 @@ class Product {
     /**
      * @return array
      */
-    public function getLabels() {
-        return $this->labels;
-    }
-
-    /**
-     * @param array $labels
-     */
-    public function setLabels($labels) {
-        $this->labels = $labels;
+    public function getAttributes() {
+        return $this->attributes;
     }
 
     public function printProduct() {
         echo "\nProduct #" . $this->id . ":\nTitle: " . $this->title . "\nCategories: ";
         print_r($this->categories);
-        echo "\nPrice: " . $this->price . "\nLabels: ";
-        print_r($this->labels);
+        echo "\nPrice: " . $this->price . "\nAttributes: ";
+        print_r($this->attributes);
     }
 }

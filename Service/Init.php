@@ -13,22 +13,23 @@ class Init {
     public function __construct() {
         $this->file_content = file_get_contents(self::JSON_FILE_NAME);
         if ($this->file_content === false) {
-            // deal with error...
+            // TODO: deal with error...
         }
         $this->json_decoded = json_decode($this->file_content, true);
         if ($this->json_decoded === null) {
             // deal with error...
         }
-        $this->createAttributes(); // general attributes (not specific to category) from json file
+        $this->createAttributesFromJsonFile(); // general attributes (not specific to category) from json file
         $this->createProducts();
     }
 
-    public function createAttributes() {
+    public function createAttributesFromJsonFile() {
         $labels = array();
         foreach ($this->json_decoded["attributes"] as $attribute) {
             $labels = $this->createLabels($attribute["labels"]);
-            $min_id = min(array_column($attribute["labels"], 'id'));
-            $max_id = max(array_column($attribute["labels"], 'id'));
+            $labels_ids = array_column($attribute["labels"], 'id');
+            $min_id = min($labels_ids);
+            $max_id = max($labels_ids);
             $this->all_attributes[] = new Attribute($attribute["id"], $attribute["title"], $labels, $min_id, $max_id);
         }
     }
@@ -42,36 +43,29 @@ class Init {
     }
 
     public function createProducts() {
-        $categories = array();
         foreach ($this->json_decoded["products"] as $product) {
-//            $attributes = $this->getAttributesByRelatedLabelsIds($product["labels"]);
-//            $labels = $this->createLabelsByIds($product["labels"]);
-//            $categories = $this->createCategories($product["categories"], $attributes, $product["labels"]);
-            $categories = $this->createCategories($product["categories"], $product["labels"]);
-            $this->all_products[] = new Product($product["id"], $product["title"], $product["price"], $product["categories"], $product["labels"]);
+            $attributes = $this->createAttributesFromLabelsIds($product["labels"]);
+            $categories = $this->createCategories($product["categories"], $attributes);
+            $this->all_products[] = new Product($product["id"], $product["title"], $product["price"], $categories, $attributes);
         }
     }
 
-    public function getAttributesByRelatedLabelsIds($labels_ids) {
+    public function createAttributesFromLabelsIds($labels_ids) {
         $attributes = array();
+        $counts = array_count_values($labels_ids);
         foreach ($this->all_attributes as $attribute) {
+            $labels = array();
             foreach ($labels_ids as $label_id) {
                 if ($attribute->checkIfLabelRelatedByLabelId($label_id)) {
-                    $attributes[] = $attribute;
+                    $labels[] = new Label($label_id, $attribute->getLabelTitleByLabelId($label_id), $counts[$label_id]);
                 }
             }
+            $attributes[] = new Attribute($attribute->getId(), $attribute->getTitle(), $labels);
         }
         return $attributes;
     }
 
-    public function createLabelsByIds($labels_ids) {
-        $labels = array();
-
-
-        return $labels;
-    }
-
-    public function createCategories($categories, $labels_ids) {
+    public function createCategories($categories, $attributes) {
         $return_categories = array();
         if (!empty($categories)) {
             foreach ($categories as $category) {
@@ -96,6 +90,18 @@ class Init {
             }
         }
         return -1;
+    }
+
+    public function getAttributesByRelatedLabelsIds($labels_ids) {
+        $attributes = array();
+        foreach ($this->all_attributes as $attribute) {
+            foreach ($labels_ids as $label_id) {
+                if ($attribute->checkIfLabelRelatedByLabelId($label_id)) {
+                    $attributes[] = $attribute;
+                }
+            }
+        }
+        return $attributes;
     }
 
     /**
@@ -124,19 +130,8 @@ class Init {
     /**
      * @return array
      */
-    public function getAllAttributes() {
-        if (empty($this->all_attributes)) {
-            $this->createAttributes();
-        }
-        return $this->all_attributes;
-    }
-
-    /**
-     * @return array
-     */
     public function getAllCategories() {
         if (empty($this->all_categories) && empty($this->all_products)) {
-            echo "\nNo Categories!";
             $this->createProducts();
         }
         return $this->all_categories;
