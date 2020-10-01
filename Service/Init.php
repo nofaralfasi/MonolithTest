@@ -45,22 +45,6 @@ class Init {
         }
     }
 
-    /**
-     * @return false|string
-     */
-    public function getFileContent() {
-        return $this->file_content;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getJsonDecoded() {
-        return $this->json_decoded;
-    }
-
-
-
     public function createProducts() {
         foreach ($this->json_decoded["products"] as $val) {
 //            $this->getAttributesByRelatedLabelsIds($val["labels"]);

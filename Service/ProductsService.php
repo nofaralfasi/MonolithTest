@@ -1,12 +1,14 @@
 <?php
 class ProductsService {
     private $all_products = array();
+    private $category_service;
 
     /**
      * ProductsService constructor.
      * @param $products_json
      */
     public function __construct($products_json) {
+        $this->category_service = new CategoriesService();
         foreach ($products_json as $product_json) {
 //            $this->getAttributesByRelatedLabelsIds($val["labels"]);
             $this->createCategories($product_json["categories"]);
@@ -15,8 +17,7 @@ class ProductsService {
     }
 
     public function createCategories($categories) {
-        $category_service = new CategoriesService();
-        $category_service->createCategories($categories);
+        $this->category_service->createCategories($categories);
     }
 
     /**
