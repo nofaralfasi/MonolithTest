@@ -3,11 +3,15 @@ session_start();
 include("functions/functions.php");
 $page = "home";
 $title = "Homepage";
-$metaD = "Stickers Center Homepage";
+$metaD = "Homepage";
 include("header.php");
-include "../Init.php";
+include '../Entity/Product.php';
+include '../Entity/Category.php';
+include '../Entity/Attribute.php';
+include '../Entity/Label.php';
+include "../Service/Init.php";
 $init = new Init();
-$attributes = $init->getAllAttributes();
+//$attributes = $init->getAllAttributes();
 $products = $init->getAllProducts();
 $categories = $init->getAllCategories();
 ?>
@@ -91,7 +95,6 @@ $categories = $init->getAllCategories();
                         <div class="col-sm-4">
                             <div id="products_box">
                                 <?php getProductsList($products); ?>
-                                <?php getCategoriesList($categories); ?>
                             </div>
                         </div>
                     </div>

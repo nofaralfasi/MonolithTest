@@ -65,6 +65,6 @@ class Attribute {
     }
 
     public function checkIfLabelRelatedByLabelId($label_id) {
-        return array_search($label, $this->labels);
+        return array_search($label_id, $this->labels);
     }
 }
