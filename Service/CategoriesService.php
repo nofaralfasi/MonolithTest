@@ -105,7 +105,6 @@ class CategoriesService {
      */
     public function getAllCategories() {
         if (empty($this->all_categories) && empty($this->all_products)) {
-            echo "\nNo Categories!";
             $this->createProducts();
         }
         return $this->all_categories;
