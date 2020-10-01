@@ -37,8 +37,8 @@ $categories = $init->getAllCategories();
                                     <button type="button" class="btn btn-default get">Get it now</button>
                                 </div>
                                 <div class="col-sm-6">
-                                    <img src="images/home/girl1.jpg" class="girl img-responsive" alt="" />
-                                     <img src="images/home/pricing.png"  class="pricing" alt="" />
+                                    <img src="images/home/girl1.jpg" class="girl img-responsive" alt=""/>
+                                    <img src="images/home/pricing.png" class="pricing" alt=""/>
                                 </div>
                             </div>
                             <div class="item">
@@ -49,7 +49,7 @@ $categories = $init->getAllCategories();
                                     <button type="button" class="btn btn-default get">Get it now</button>
                                 </div>
                                 <div class="col-sm-6">
-                                    <img src="images/home/girl2.jpg" class="girl img-responsive" alt="" />
+                                    <img src="images/home/girl2.jpg" class="girl img-responsive" alt=""/>
                                 </div>
                             </div>
 
@@ -61,7 +61,7 @@ $categories = $init->getAllCategories();
                                     <button type="button" class="btn btn-default get">Get it now</button>
                                 </div>
                                 <div class="col-sm-6">
-                                    <img src="images/home/girl3.jpg" class="girl img-responsive" alt="" />
+                                    <img src="images/home/girl3.jpg" class="girl img-responsive" alt=""/>
                                 </div>
                             </div>
 
@@ -91,15 +91,12 @@ $categories = $init->getAllCategories();
                 <div class="col-sm-9 padding-right">
                     <div class="features_items">
                         <!--features_items-->
-                        <h2 class="title text-center">Features Items</h2>
-                        <div class="col-sm-4">
-                            <div id="products_box">
-                                <?php getProductsList($products); ?>
-                            </div>
-                        </div>
+                        <h2 class="title text-center">Featured Items</h2>
+                        <?php getProductsList($products); ?>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
@@ -118,7 +115,7 @@ $categories = $init->getAllCategories();
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="images/home/recommend1.jpg" class="size200" alt="" />
+                                                <img src="images/home/recommend1.jpg" class="size200" alt=""/>
                                                 <h2>$56</h2>
                                                 <p>Modern Wallpaper With Textured Linear Stripes </p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -130,7 +127,7 @@ $categories = $init->getAllCategories();
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="images/home/recommend2.jpg" class="size200" alt="" />
+                                                <img src="images/home/recommend2.jpg" class="size200" alt=""/>
                                                 <h2>$56</h2>
                                                 <p></p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -142,7 +139,7 @@ $categories = $init->getAllCategories();
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="images/home/recommend3.jpg" class="size200" alt="" />
+                                                <img src="images/home/recommend3.jpg" class="size200" alt=""/>
                                                 <h2>$56</h2>
                                                 <p></p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -156,7 +153,7 @@ $categories = $init->getAllCategories();
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="images/home/recommend1.jpg" class="size200" alt="" />
+                                                <img src="images/home/recommend1.jpg" class="size200" alt=""/>
                                                 <h2>$56</h2>
                                                 <p></p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -169,7 +166,7 @@ $categories = $init->getAllCategories();
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="images/home/recommend2.jpg" class="size200" alt="" />
+                                                <img src="images/home/recommend2.jpg" class="size200" alt=""/>
                                                 <h2>$56</h2>
                                                 <p></p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -182,7 +179,7 @@ $categories = $init->getAllCategories();
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="images/home/recommend3.jpg" class="size200" alt="" />
+                                                <img src="images/home/recommend3.jpg" class="size200" alt=""/>
                                                 <h2>$56</h2>
                                                 <p></p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
