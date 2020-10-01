@@ -16,8 +16,7 @@ $products = $init->getAllProducts();
 $categories = $init->getAllCategories();
 ?>
 
-    <section id="slider">
-        <!--slider-->
+    <section id="slider"><!--slider-->
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -31,37 +30,39 @@ $categories = $init->getAllCategories();
                         <div class="carousel-inner">
                             <div class="item active">
                                 <div class="col-sm-6">
-                                    <h1><span>Stickers</span> Center</h1>
-                                    <h2>Wall Stickers & Wallpapers</h2>
-                                    <p>Design your house as you wish with our wide range of products.</p>
+                                    <h1><span>E</span>-SHOPPER</h1>
+                                    <h2>Free E-Commerce Template</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                                     <button type="button" class="btn btn-default get">Get it now</button>
                                 </div>
                                 <div class="col-sm-6">
-                                    <img src="images/home/girl1.jpg" class="girl img-responsive" alt=""/>
-                                    <img src="images/home/pricing.png" class="pricing" alt=""/>
+                                    <img src="images/home/girl1.jpg" class="girl img-responsive" alt="" />
+                                    <img src="images/home/pricing.png"  class="pricing" alt="" />
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="col-sm-6">
-                                    <h1><span>Stickers</span> Center</h1>
+                                    <h1><span>E</span>-SHOPPER</h1>
                                     <h2>100% Responsive Design</h2>
-                                    <p>Design your house as you wish with our wide range of products. </p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                                     <button type="button" class="btn btn-default get">Get it now</button>
                                 </div>
                                 <div class="col-sm-6">
-                                    <img src="images/home/girl2.jpg" class="girl img-responsive" alt=""/>
+                                    <img src="images/home/girl2.jpg" class="girl img-responsive" alt="" />
+                                    <img src="images/home/pricing.png"  class="pricing" alt="" />
                                 </div>
                             </div>
 
                             <div class="item">
                                 <div class="col-sm-6">
-                                    <h1><span>Stickers</span> Center</h1>
-                                    <h2>100% Responsive Design</h2>
-                                    <p>Design your house as you wish with our wide range of products. </p>
+                                    <h1><span>E</span>-SHOPPER</h1>
+                                    <h2>Free Ecommerce Template</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                                     <button type="button" class="btn btn-default get">Get it now</button>
                                 </div>
                                 <div class="col-sm-6">
-                                    <img src="images/home/girl3.jpg" class="girl img-responsive" alt=""/>
+                                    <img src="images/home/girl3.jpg" class="girl img-responsive" alt="" />
+                                    <img src="images/home/pricing.png" class="pricing" alt="" />
                                 </div>
                             </div>
 
@@ -78,8 +79,7 @@ $categories = $init->getAllCategories();
                 </div>
             </div>
         </div>
-    </section>
-    <!--/slider-->
+    </section><!--/slider-->
 
     <!--Main Container starts here-->
     <section>
@@ -100,110 +100,7 @@ $categories = $init->getAllCategories();
         </div>
     </section>
 
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="recommended_items">
-                    <!--recommended_items-->
-                    <h2 class="title text-center">
-                        recommended items
-                    </h2>
-                    <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="images/home/recommend1.jpg" class="size200" alt=""/>
-                                                <h2>$56</h2>
-                                                <p>Modern Wallpaper With Textured Linear Stripes </p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="images/home/recommend2.jpg" class="size200" alt=""/>
-                                                <h2>$56</h2>
-                                                <p></p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="images/home/recommend3.jpg" class="size200" alt=""/>
-                                                <h2>$56</h2>
-                                                <p></p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="images/home/recommend1.jpg" class="size200" alt=""/>
-                                                <h2>$56</h2>
-                                                <p></p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                            </div>
 
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="images/home/recommend2.jpg" class="size200" alt=""/>
-                                                <h2>$56</h2>
-                                                <p></p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="images/home/recommend3.jpg" class="size200" alt=""/>
-                                                <h2>$56</h2>
-                                                <p></p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
-                        <i class="fa fa-angle-left"></i>
-                    </a>
-                    <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-
-                </div>
-            </div>
-            <!--/recommended_items-->
-
-        </div>
-    </section>
 <?php
 include "footer.php";
 ?>

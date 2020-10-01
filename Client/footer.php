@@ -150,8 +150,7 @@
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
-                <p class="pull-left">Copyright © 2019 Stickers Center Inc. All rights reserved.</p>
-                <!-- <p class="pull-right">Designed by <span><a target="_blank" href="#">-</a></span></p> -->
+                <p class="pull-left">Made by Nofar Alfasi 2020</p>
             </div>
         </div>
     </div>
