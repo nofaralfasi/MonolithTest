@@ -14,7 +14,6 @@
         } else {
             echo "Default title tag";
         } ?></title>
-    <!-- <title>Home | Stickers Center</title> -->
 
     <script type="text/javascript" href="index.js"></script>
     <link rel="stylesheet" href="styles/style.css" media="all"/>
