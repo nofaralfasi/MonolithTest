@@ -57,4 +57,8 @@ class Label {
     public function setRelatedProductsCounter($related_products_counter) {
         $this->related_products_counter = $related_products_counter;
     }
+
+    public function increaseRelatedProductsCounter() {
+        $this->related_products_counter += 1;
+    }
 }

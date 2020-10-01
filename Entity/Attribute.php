@@ -3,17 +3,23 @@ class Attribute {
     private $id;
     private $title;
     private $labels = array();
+    private $first_label_id;
+    private $last_label_id;
 
     /**
      * Attribute constructor.
      * @param $id
      * @param $title
      * @param array $labels
+     * @param int $first_label_id
+     * @param int $last_label_id
      */
-    public function __construct($id, $title, array $labels) {
+    public function __construct($id, $title, array $labels, $first_label_id = 0, $last_label_id = 0) {
         $this->id = $id;
         $this->title = $title;
-        $this->setLabels($labels);
+        $this->labels = $labels;
+        $this->first_label_id = $first_label_id;
+        $this->last_label_id = $last_label_id;
     }
 
     /**
@@ -52,19 +58,29 @@ class Attribute {
     }
 
     /**
-     * @param array $labels
+     * @return int
      */
-    public function setLabels($labels) {
-        foreach ($labels as $label) {
-            $this->labels[] = new Label($label["id"], $label["title"]);
-        }
+    public function getFirstLabelId() {
+        return $this->first_label_id;
     }
 
-    public function checkIfLabelRelated($label) {
+    /**
+     * @return int
+     */
+    public function getLastLabelId() {
+        return $this->last_label_id;
+    }
+
+        public function checkIfLabelRelated($label) {
         return array_search($label, $this->labels);
     }
 
     public function checkIfLabelRelatedByLabelId($label_id) {
-        return array_search($label_id, $this->labels);
+        if($label_id >= $this->first_label_id && $label_id <= $this->last_label_id){
+            return TRUE;
+        }
+        return FALSE;
     }
+
+
 }

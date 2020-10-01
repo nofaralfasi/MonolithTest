@@ -9,13 +9,21 @@ class Category {
      * Category constructor.
      * @param $id
      * @param $title
-     * @param $related_products_counter
+     * @param $attributes
+     * @param int $related_products_counter
      */
-    public function __construct($id, $title, $related_products_counter = 0) {
+    public function __construct($id, $title, $attributes, $related_products_counter = 0) {
         $this->id = $id;
         $this->title = $title;
+        $this->attributes = $attributes;
         $this->related_products_counter = $related_products_counter;
     }
+
+//    public function __construct($id, $title, $related_products_counter = 0) {
+//        $this->id = $id;
+//        $this->title = $title;
+//        $this->related_products_counter = $related_products_counter;
+//    }
 
     /**
      * @return mixed
@@ -75,6 +83,17 @@ class Category {
 
     public function increaseRelatedProductsCounter() {
         $this->related_products_counter += 1;
+    }
+
+    public function addAttributes($attributes) {
+        foreach ($attributes as $attribute){
+//            $attribute->
+//            $labels = $attribute->getLabels();
+//            foreach ($labels as $label){
+//                $label->
+//            }
+            $this->attributes[]=$attribute;
+        }
     }
 
     public function printProduct() {
