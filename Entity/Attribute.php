@@ -73,6 +73,7 @@ class Attribute {
 
     public function addLabels($labels) {
         $flag = 0;
+        $new_labels = array();
         foreach ($labels as $new_label) {
             foreach ($this->labels as $label) {
                 if ($label->getId() === $new_label->getId()) {
@@ -81,10 +82,12 @@ class Attribute {
                 }
             }
             if ($flag === 0) {
-                $this->labels[] = $new_label;
+                $new_labels[] = $new_label;
             }
             $flag = 0;
         }
+
+        array_merge($this->labels, $new_labels);
     }
 
     public function getLabelTitleByLabelId($label_id) {

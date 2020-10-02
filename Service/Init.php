@@ -73,6 +73,7 @@ class Init {
                 if ($key != -1) {
                     ($this->all_categories[$key])->increaseRelatedProductsCounter();
                     ($this->all_categories[$key])->addAttributes($attributes);
+                    $return_categories[] =$this->all_categories[$key];
                 } else {
                     $new_category = new Category($category["id"], $category["title"], $attributes, 1);
                     $this->all_categories[] = $new_category;
