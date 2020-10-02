@@ -75,12 +75,12 @@ class Attribute {
         $flag = 0;
         foreach ($labels as $new_label) {
             foreach ($this->labels as $label) {
-                if ($label->getId() == $new_label->getId()) {
+                if ($label->getId() === $new_label->getId()) {
                     $flag = 1;
                     $label->setRelatedProductsCounter($label->getRelatedProductsCounter() + $new_label->getRelatedProductsCounter());
                 }
             }
-            if ($flag == 0) {
+            if ($flag === 0) {
                 $this->labels[] = $new_label;
             }
             $flag = 0;
@@ -89,7 +89,7 @@ class Attribute {
 
     public function getLabelTitleByLabelId($label_id) {
         foreach ($this->labels as $label) {
-            if ($label->getId() == $label_id) {
+            if ($label->getId() === $label_id) {
                 return $label->getTitle();
             }
         }

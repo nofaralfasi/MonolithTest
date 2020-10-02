@@ -83,7 +83,7 @@ class Category {
         $array_attrs = array();
         foreach ($this->attributes as $attribute) {
             foreach ($attributes as $new_attribute) {
-                if ($new_attribute->getId() == $attribute->getId()) {
+                if ($new_attribute->getId() === $attribute->getId()) {
                     $attribute->addLabels($new_attribute->getLabels());
                 } else {
                     $array_attrs[] = $new_attribute;
@@ -95,15 +95,15 @@ class Category {
 
     public function checkIfHasAttribute($attribute) {
         foreach ($this->attributes as $attr) {
-            if ($attribute->getId() == $attr->getId()) {
+            if ($attribute->getId() === $attr->getId()) {
                 return $attr;
             }
         }
         return NULL;
     }
 
-    public function printProduct() {
-        echo "\nProduct #" . $this->id . ":\nTitle: " . $this->title . "\nRelated Products Counter: " . $this->related_products_counter . "\nRelated Attributes: ";
+    public function printCategory() {
+        echo "\n<br>Category #" . $this->id . ":\n<br>Title: " . $this->title . "\n<br>Related Products Counter: " . $this->related_products_counter . "\n<br>Related Attributes: ";
         print_r($this->attributes);
     }
 }

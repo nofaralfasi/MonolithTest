@@ -85,7 +85,7 @@ class Init {
 
     public function checkIfCategoryExists($category_to_check) {
         foreach ($this->all_categories as $category) {
-            if ($category_to_check["title"] == $category->getTitle()) {
+            if ($category_to_check["title"] === $category->getTitle()) {
                 return array_search($category, $this->all_categories);
             }
         }
@@ -120,7 +120,7 @@ class Init {
 
     public function checkIfAttributeExistsInCategory($attribute_to_check) {
         foreach ($this->all_attributes as $attribute) {
-            if ($attribute_to_check["id"] == $attribute->getId() && $attribute_to_check["title"] == $attribute->getTitle()) {
+            if ($attribute_to_check["id"] === $attribute->getId() && $attribute_to_check["title"] === $attribute->getTitle()) {
                 return array_search($attribute, $this->all_attributes);
             }
         }

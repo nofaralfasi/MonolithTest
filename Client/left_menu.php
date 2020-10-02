@@ -42,7 +42,7 @@
 <!--                </div>-->
 <!--            </div>-->
 
-            <?php getCategoriesListInSeparatePanels($categories); ?>
+<!--            --><?php //getCategoriesListInSeparatePanels($categories); ?>
         </div>
         <!--/category-products-->
         <h2>Categories</h2>
