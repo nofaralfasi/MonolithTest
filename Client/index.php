@@ -9,17 +9,9 @@ include '../Entity/Category.php';
 include '../Entity/Attribute.php';
 include '../Entity/Label.php';
 include "../Service/Init.php";
-include "../Service/ProductsService.php";
-include "../Service/CategoriesService.php";
+
 $init = new Init();
-//$json_decoded = $init->getJsonDecoded();
-//$products_service = new ProductsService($json_decoded["products"]);
-//$category_service = new CategoriesService();
 
-//$products = $products_service->getAllProducts();
-//$categories = $category_service->getAllCategories();
-
-//$attributes = $init->getAllAttributes();
 $products = $init->getAllProducts();
 $categories = $init->getAllCategories();
 

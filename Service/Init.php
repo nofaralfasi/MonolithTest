@@ -13,11 +13,11 @@ class Init {
     public function __construct() {
         $this->file_content = file_get_contents(self::JSON_FILE_NAME);
         if ($this->file_content === false) {
-            // TODO: deal with error...
+            die("Error! Can't read JSON file.");
         }
         $this->json_decoded = json_decode($this->file_content, true);
         if ($this->json_decoded === null) {
-            // deal with error...
+            die("Error! Can't decode JSON file content.");
         }
         $this->createAttributesFromJsonFile(); // general attributes (not specific to category) from json file
         $this->createProducts();
