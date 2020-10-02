@@ -81,8 +81,8 @@ class Category {
 
     public function addAttributes($attributes) {
         $array_attrs = array();
-        foreach ($attributes as $new_attribute) {
-            foreach ($this->attributes as $attribute) {
+        foreach ($this->attributes as $attribute) {
+            foreach ($attributes as $new_attribute) {
                 if ($new_attribute->getId() == $attribute->getId()) {
                     $attribute->addLabels($new_attribute->getLabels());
                 } else {

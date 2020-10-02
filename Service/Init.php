@@ -24,7 +24,6 @@ class Init {
     }
 
     public function createAttributesFromJsonFile() {
-        $labels = array();
         foreach ($this->json_decoded["attributes"] as $attribute) {
             $labels = $this->createLabels($attribute["labels"]);
             $labels_ids = array_column($attribute["labels"], 'id');
@@ -53,6 +52,7 @@ class Init {
     public function createAttributesFromLabelsIds($labels_ids) {
         $attributes = array();
         $counts = array_count_values($labels_ids);
+        $labels_ids = array_unique($labels_ids);
         foreach ($this->all_attributes as $attribute) {
             $labels = array();
             foreach ($labels_ids as $label_id) {
